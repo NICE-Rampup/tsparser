@@ -57,5 +57,12 @@ Header::Header(const char *header, size_t n)
 
 void Header::display()
 {
-    cout << "pid: " << this->pid << endl;
+    cout << "Tei: " << this->tei << endl;
+    cout << "Payload Start: " << this->payloadStart << endl;
+    cout << "Priority: " << this->priority << endl;
+    cout << "Pid: " << this->pid << endl;
+    cout << "Scrambling Control: " << this->scramblingCtl << endl;
+    cout << "Adaptation Field: " << this->adaptationField << endl;
+    cout << "Has Payload: " << this->hasPayload << endl;
+    cout << "counter: " << this->counter << endl;
 }
