@@ -5,6 +5,7 @@ TS file parser
 
 # Software requirement
 C++ version: 11
+
 Minimum Cmake version 3.22.1
 
 # How to run:
