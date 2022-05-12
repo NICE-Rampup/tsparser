@@ -11,9 +11,9 @@ int main(int argc, char *argv[])
 {
 	if (argc == 2)
 	{
-		string fname = argv[1];
-		ifstream file(fname, ios::in | ios::binary);
-		if (check(file, fname))
+		string fileName = argv[1];
+		ifstream file(fileName, ios::in | ios::binary);
+		if (checkFile(file, fileName))
 		{
 			int count = 0;
 			while (!file.eof())
@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
 		}
 		else
 		{
-			cout<<"invalid file"<<endl;
+			cout << "invalid file" << endl;
 			return 0;
 		}
 	}
