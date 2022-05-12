@@ -1,13 +1,13 @@
-#include<fstream>
-#include<iostream>
-#include<string>
+#include <fstream>
+#include <iostream>
+#include <string>
 using namespace std;
 
-bool hasEnding (string const &fname, string const &type)
+bool endsWith(string const &fileName, string const &type)
 {
-    if (fname.length() >= type.length())
+    if (fileName.length() >= type.length())
     {
-        return (0 == fname.compare (fname.length() - type.length(), type.length(), type));
+        return (0 == fileName.compare(fileName.length() - type.length(), type.length(), type));
     }
     else
     {
@@ -15,21 +15,20 @@ bool hasEnding (string const &fname, string const &type)
     }
 }
 
-
-bool check(ifstream& f,string fname)
+bool checkFile(ifstream &file, string fileName)
 {
-    //transform(fname.begin(), fname.end(), fname.begin(), ::tolower);
-    if(f && hasEnding(fname,".ts"))
+    // transform(fileName.begin(), fileName.end(), fileName.begin(), ::tolower);
+    if (file && endsWith(fileName, ".ts"))
     {
-        char a[4];
-        f.read(a,4);
-        if(a[0]=='G')
+        char header[4];
+        file.read(header, 4);
+        if (header[0] == 'G') // checks sync byte
         {
-            f.ignore(184);
-            f.read(a,4);
-            if(a[0]=='G')
+            file.ignore(184);
+            file.read(header, 4);
+            if (header[0] == 'G')
             {
-                f.seekg (0, f.beg);
+                file.seekg(0, file.beg);
                 return true;
             }
         }
